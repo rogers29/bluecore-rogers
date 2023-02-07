@@ -1,7 +1,7 @@
 # Teste Técnico de Desenvolvedor Bluecore.it
 # O que foi feito
 - Foi adicionada nova rota para buscar os comentários de acordo com o PostID. 
-- Foi adicionado um novo formulários para criação de um novo comentário e enviado para a rota Post para salvar o mesmo no banco, com as seguintes informações: UserNamve, Comment e PostID.
+- Foi adicionado um formulário para criação de um novo comentário e enviado para a rota Post para salvar o mesmo no banco com as seguintes informações: UserName, Comment e PostID.
 
 
 ### Tecnologias presente neste projeto
