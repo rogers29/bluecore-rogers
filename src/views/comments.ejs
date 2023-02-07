@@ -1,0 +1,72 @@
+<section id="app" style="height: 100vh; overflow-y: scroll;">
+  <a href="/"><- Voltar</a><br>
+  <h1>{{post.Title}}</h1>
+  <p>{{post.Content}}</p>
+  <br>
+  <h3>Comentários</h3>
+  <div>
+    <form>
+      <label>Nome</label><br>
+      <input type="text" v-model="newComments.UserName" name="UserName"><br><br>
+      <label>Comentário</label><br>
+      <input type="text" v-model="newComments.Comment" name="Comment" height="80px" size="80px"><br><br>
+      <button type="button" @click="saveComment()">Enviar Comentário</button><br><br>
+    </form>
+  </div>
+  <!-- Utilize looping v-for do VueJs para exibir os comentários (título e conteúdo) de forma dinâmica -->
+  <div>
+    <ul>
+      <li v-for="comment in comments">
+        <h5>{{ comment.UserName }}</h5>
+        <p>{{ comment.Comment }}</p>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<script>
+  var http = axios.create({
+    baseURL: "<%- apiUrl%>",
+    timeout: 10000,
+  });
+  const postId = "<%- postId %>"
+
+  var app = new Vue({
+    el: "#app",
+    data: {
+      post: {},
+      comments: [],
+      newComments: {
+        PostId: postId
+      }
+    },
+    methods: {
+      loadPost() {
+        http.get("/posts/" + postId).then((response) => {
+          this.post = response.data;
+        });
+      },
+      saveComment() {
+        http.post("/comments/", this.newComments)
+          .then((response) => {
+            this.loadComments()
+            this.newComments = {
+              PostId: postId
+            }
+        })
+      },
+      loadComments() {
+        //TODO: Criar função que realiza a chamada na API retornando os comentários pelo id do post
+        //para usar o id do post utilize a constate postId criada a cima
+        http.get("/comments/" + postId).then((response) => {
+          this.comments = response.data;
+        });
+      }
+    },
+    mounted() {
+      this.loadPost();
+      //TODO: Faça a chamada da função que carrega os comentários
+      this.loadComments();
+    },
+  });
+</script>
