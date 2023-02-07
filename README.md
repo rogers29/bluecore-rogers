@@ -1,12 +1,8 @@
 # Teste Técnico de Desenvolvedor Bluecore.it
+# O que foi feito
+- Foi adicionada nova rota para buscar os comentários de acordo com o PostID. 
+- Foi adicionado um novo formulários para criação de um novo comentário e enviado para a rots Post para salvar o mesmo no banco, com as seguintes informações: UserNamve, Comment e PostID.
 
-### Explicação
-Esta é uma aplicação que simula um blog, nela existem duas páginas, a inicial que contêm a lista de posts cadastrados, e a segunda tela é a de detalhes do post aonde é exibido o conteúdo e também os comentários relacionados a aquele post. Mas a aplicação se encontra incompleta, restando ainda realizar a listagem dos comentários dentro da página de detalhes do post, e essa será a sua missão neste projeto.
-Antes de começar tem alguns pontos que podem te ajudar, se atente aos TODOs existentes no código eles indicam exatamente onde devem ser feitas as alterações para que você consiga finalizar sua missão. Uma dica que pode ser muito útil é se basear na entidade Post, a qual já está com toda a sua implementação finalizada.
-
-**EXTRA**: Será considerado um extra, se na página de post, for criado um formulário que realiza a criação de um novo comentário, salvando ele em banco de dados.
-
-Boa sorte!
 
 ### Tecnologias presente neste projeto
   - Node
