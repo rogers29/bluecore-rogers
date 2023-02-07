@@ -43,6 +43,22 @@ Para realizar a instalação da aplicação:
  ### Comandos úteis
 `npx knex migrate:rollback --all` - Reseta todo o banco de dados
 
+ ### Curl para buscar comentários - via Postman
+`curl --location --request GET 'http://localhost:3000/api/comments/3'` 
+ - Obs.:Onde "3" é o PostId. 
+
+ ### Curl para salvar comentários - via Postman
+```
+curl --location --request POST 'http://localhost:3000/api/comments/' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "UserName": "Usuário Postman",
+    "Comment": "Teste comentário enviado via Postman",
+    "PostId": 3
+}'
+```
+- Obs.:Onde "3" é o PostId. 
+
 ### Links úteis
 - [Documentação do Knex](https://knexjs.org/guide/)
 - [Documentação do Vue JS](https://vuejs.org/guide/introduction.html)
